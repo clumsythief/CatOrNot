@@ -1,0 +1,16 @@
+Have you ever seen a picture of catloaf that looks so much like a real loaf of bread 🍞 that you don’t even know if you can believe your eyes anymore? You can easily solve this problem using our 🔮CatOrNot Telegram Bot🔮! It uses Machine Learning to identify if there is a cat in the picture, so instead of relying on your own eyes, you can now delegate this job to an artificial intelligence. 😉
+
+ Just follow these easy steps:
+
+🐈 Upload an image
+🐈 ???
+🐈 Get an answer!
+
+📷 Supported image formats: JPG, [...]
+
+📈 Statistics:
+ - Number of images checked
+ - Number of images with cats
+ - Percentage of cat pictures
+(example: "OMG, cats are everywhere! 80% of images you've checked had cats in them.")
+ - [other statistics]
