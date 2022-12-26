@@ -3,7 +3,7 @@ from telebot import types
 from tensorflow import keras
 import numpy as np
 import cv2
-
+#added comment
 model = keras.applications.VGG16()
 
 bot = telebot.TeleBot('5982274359:AAHBxZM7_42LBESOhsL_EnvDm_6b3GAWGOM')
