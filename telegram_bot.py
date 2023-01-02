@@ -16,22 +16,7 @@ bot = telebot.TeleBot('5982274359:AAHBxZM7_42LBESOhsL_EnvDm_6b3GAWGOM')
 
 
 
-@bot.message_handler()
-def all(message):
-    if message.text == "hi":
-        mess = f'Hello, <b>{message.from_user.first_name} </b>'
-        bot.send_message(message.chat.id, mess, parse_mode='html')
-    elif message.text == "info":
-        mess = {message.from_user}
-        bot.send_message(message.chat.id, mess, parse_mode='html')
-    elif message.text == "/help":
-        help(message)
-    elif message.text == "/start":
-        start(message)
-    elif message.text == "/statistics":
-        statistics(message)
-    else:
-        bot.send_message(message.chat.id, "Please, choose another command: \nhi\ninfo")
+
 #
 
 def CATorNOT(img_dir):
@@ -79,6 +64,21 @@ def statistics(message):
 def help(message):
     bot.send_message(message.chat.id, open('myfile.txt', 'r', -1, 'utf-8').read(), parse_mode = 'html')
 
-
+@bot.message_handler()
+def all(message):
+    if message.text == "hi":
+        mess = f'Hello, <b>{message.from_user.first_name} </b>'
+        bot.send_message(message.chat.id, mess, parse_mode='html')
+    elif message.text == "info":
+        mess = {message.from_user}
+        bot.send_message(message.chat.id, mess, parse_mode='html')
+    elif message.text == "/help":
+        help(message)
+    elif message.text == "/start":
+        start(message)
+    elif message.text == "/statistics":
+        statistics(message)
+    else:
+        bot.send_message(message.chat.id, "Please, choose another command: \nhi\ninfo")
 
 bot.polling(none_stop = True)
