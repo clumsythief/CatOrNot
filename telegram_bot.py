@@ -43,7 +43,7 @@ def photo(message):
     print ('file.file_path =', file_info.file_path)
     downloaded_file = bot.download_file(file_info.file_path)
 
-    with open("image.jpg", 'wb') as new_file:
+    with open('image.jpg', 'wb') as new_file:
         new_file.write(downloaded_file)
 
     img_dir = 'image.jpg'
@@ -66,19 +66,19 @@ def help(message):
 
 @bot.message_handler()
 def all(message):
-    if message.text == "hi":
+    if message.text == 'hi':
         mess = f'Hello, <b>{message.from_user.first_name} </b>'
         bot.send_message(message.chat.id, mess, parse_mode='html')
-    elif message.text == "info":
+    elif message.text == 'info':
         mess = {message.from_user}
         bot.send_message(message.chat.id, mess, parse_mode='html')
-    elif message.text == "/help":
+    elif message.text == '/help':
         help(message)
-    elif message.text == "/start":
+    elif message.text == '/start':
         start(message)
-    elif message.text == "/statistics":
+    elif message.text == '/statistics':
         statistics(message)
     else:
-        bot.send_message(message.chat.id, "Please, choose another command: \nhi\ninfo")
+        bot.send_message(message.chat.id, 'Please, choose another command: \nhi\ninfo')
 
 bot.polling(none_stop = True)
