@@ -1,17 +1,15 @@
 import telebot
 from telebot import types
-from tensorflow import keras
-import numpy as np
-import cv2
+# from tensorflow import keras
+# import numpy as np
+# import cv2
 #added comment
-model = keras.applications.VGG16()
+# model = keras.applications.VGG16()
+# from always_false_recognizer import AlwaysFalseRecognizer
+from cat_recognizer import CatRecognizer
 
 bot = telebot.TeleBot('5982274359:AAHBxZM7_42LBESOhsL_EnvDm_6b3GAWGOM')
-# @bot.message_handler(commands = ['start'])
-# def start():
-#     markup = types.ReplyKeyboardMarkup()
-#     info = types.KeyboardMarkup('Info')
-#     markup.add(info)
+
 
 def download_photo(message):
     fileID = message.photo[-1].file_id
@@ -20,26 +18,32 @@ def download_photo(message):
     with open('image.jpg', 'wb') as new_file:
         new_file.write(downloaded_file)
 
-def CATorNOT(img_dir):
-    img = cv2.imread(img_dir)
-    img = cv2.resize(img, (224, 224))
-    img = np.array(img)
-    x = keras.applications.vgg16.preprocess_input(img)
-    x = np.expand_dims(x, axis=0)
+# def CATorNOT(img_dir):
+#     img = cv2.imread(img_dir)
+#     img = cv2.resize(img, (224, 224))
+#     img = np.array(img)
+#     x = keras.applications.vgg16.preprocess_input(img)
+#     x = np.expand_dims(x, axis=0)
+#
+#     res = model.predict(x)
+#     res = np.argmax(res)
+#
+#     if 281 <= res <= 285:
+#         return True
+#     else:
+#         return False
 
-    res = model.predict(x)
-    res = np.argmax(res)
-
-    if 281 <= res <= 285:
-        return True
-    else:
+class AlwaysFalseRecognizer(CatRecognizer):
+    def is_cat(self, image_path: str) -> bool:
         return False
+
+cat_recognizer = AlwaysFalseRecognizer()
 
 @bot.message_handler(content_types=['photo'])
 def photo(message):
     download_photo(message)
     file_name = 'image.jpg'
-    bot.send_message(message.chat.id, CATorNOT(file_name))
+    bot.send_message(message.chat.id, cat_recognizer.is_cat(file_name))
 
 
 @bot.message_handler(commands=['start'])
