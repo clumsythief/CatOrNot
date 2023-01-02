@@ -13,11 +13,12 @@ bot = telebot.TeleBot('5982274359:AAHBxZM7_42LBESOhsL_EnvDm_6b3GAWGOM')
 #     info = types.KeyboardMarkup('Info')
 #     markup.add(info)
 
-
-
-
-
-#
+def download_photo(message):
+    fileID = message.photo[-1].file_id
+    file_info = bot.get_file(fileID)
+    downloaded_file = bot.download_file(file_info.file_path)
+    with open('image.jpg', 'wb') as new_file:
+        new_file.write(downloaded_file)
 
 def CATorNOT(img_dir):
     img = cv2.imread(img_dir)
@@ -36,18 +37,9 @@ def CATorNOT(img_dir):
 
 @bot.message_handler(content_types=['photo'])
 def photo(message):
-    print ('message.photo =', message.photo)
-    fileID = message.photo[-1].file_id
-    print ('fileID =', fileID)
-    file_info = bot.get_file(fileID)
-    print ('file.file_path =', file_info.file_path)
-    downloaded_file = bot.download_file(file_info.file_path)
-
-    with open('image.jpg', 'wb') as new_file:
-        new_file.write(downloaded_file)
-
-    img_dir = 'image.jpg'
-    bot.send_message(message.chat.id, CATorNOT(img_dir))
+    download_photo(message)
+    file_name = 'image.jpg'
+    bot.send_message(message.chat.id, CATorNOT(file_name))
 
 
 @bot.message_handler(commands=['start'])
