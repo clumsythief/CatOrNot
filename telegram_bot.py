@@ -1,3 +1,6 @@
+import os
+import threading
+
 import telebot
 from telebot import types
 
@@ -10,8 +13,10 @@ def download_photo(message):
     fileID = message.photo[-1].file_id
     file_info = bot.get_file(fileID)
     downloaded_file = bot.download_file(file_info.file_path)
-    with open('image.jpg', 'wb') as new_file:
+    dest = 'photos/' + str(threading.get_ident()) + '.jpg'
+    with open(dest, 'wb') as new_file:
         new_file.write(downloaded_file)
+        return dest
 
 
 class AlwaysFalseRecognizer(CatRecognizer):
@@ -22,9 +27,9 @@ cat_recognizer = AlwaysFalseRecognizer()
 
 @bot.message_handler(content_types=['photo'])
 def photo(message):
-    download_photo(message)
-    file_name = 'image.jpg'
+    file_name = download_photo(message)
     bot.send_message(message.chat.id, cat_recognizer.is_cat(file_name))
+    os.remove(file_name)
 
 
 @bot.message_handler(commands=['start'])
