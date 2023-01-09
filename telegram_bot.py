@@ -16,7 +16,7 @@ def download_photo(message):
     dest = 'photos/' + str(threading.get_ident()) + '.jpg'
     with open(dest, 'wb') as new_file:
         new_file.write(downloaded_file)
-        # return src
+        return dest
 
 class AlwaysFalseRecognizer(CatRecognizer):
     def is_cat(self, image_path: str) -> bool:
@@ -28,7 +28,7 @@ cat_recognizer = AlwaysFalseRecognizer()
 def photo(message):
     file_name = download_photo(message)
     bot.send_message(message.chat.id, cat_recognizer.is_cat(file_name))
-    # os.remove(file_name)
+    os.remove(file_name)
 
 
 @bot.message_handler(commands=['start'])
