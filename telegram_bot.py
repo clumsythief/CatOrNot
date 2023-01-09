@@ -18,6 +18,7 @@ def download_photo(message):
         new_file.write(downloaded_file)
         return dest
 
+
 class AlwaysFalseRecognizer(CatRecognizer):
     def is_cat(self, image_path: str) -> bool:
         return False
