@@ -4,7 +4,7 @@ import numpy as np
 import cv2
 
 
-class MyCatRecognizer(CatRecognizer):
+class KerasCatRecognizer(CatRecognizer):
 
     def is_cat(self, image_path: str) -> bool:
         model = keras.applications.VGG16()
