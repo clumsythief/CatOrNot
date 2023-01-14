@@ -10,8 +10,8 @@ bot = telebot.TeleBot('5982274359:AAHBxZM7_42LBESOhsL_EnvDm_6b3GAWGOM')
 
 
 def download_photo(message):
-    fileID = message.photo[-1].file_id
-    file_info = bot.get_file(fileID)
+    file_id = message.photo[-1].file_id
+    file_info = bot.get_file(file_id)
     downloaded_file = bot.download_file(file_info.file_path)
     dest = 'photos/' + str(threading.get_ident()) + '.jpg'
     with open(dest, 'wb') as new_file:
