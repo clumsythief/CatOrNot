@@ -20,7 +20,7 @@ class KerasCatRecognizer(CatRecognizer):
         res = np.argmax(res)
 
         # VGG16 is based on imagenet dataset, in this dataset the cat IDs range from 281 to 285
-        return 281 <= res <= 285
+        return 281 <= res.item() <= 285
 
 
 # img_dir = 'image_dir/photo_2022-12-18_15-03-48.jpg'
