@@ -3,7 +3,6 @@ import os
 from keras_cat_recognizer import KerasCatRecognizer
 
 directory_cat_name = "cat_images"
-#directory_notCat_name = "notCat_images"
 directory_horse_name = "horse_images"
 directory_people_name = "person_images"
 cat_recognizer = KerasCatRecognizer()
