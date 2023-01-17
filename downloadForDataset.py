@@ -1,13 +1,12 @@
-import requests
-import time
 import os.path
+import time
+
+import requests
 
 for i in range(1500):
     cats = "https://thiscatdoesnotexist.com/"
     horses = "https://thishorsedoesnotexist.com/"
     people = "https://thispersondoesnotexist.com/"
-
-    # notCats = "https://picsum.photos/512"
 
     #cats
     response = requests.get(cats)
@@ -34,11 +33,3 @@ for i in range(1500):
         file.write(response.content)
 
     time.sleep(1)
-
- #notCats
-    #response = requests.get(notCats)
-    #response.raise_for_status()
-    #filename = "notCat" + str(i) + ".jpeg"
-    #completeName = os.path.join("notCat_images", filename)
-    #with open(completeName, 'wb') as file:
-    #    file.write(response.content)

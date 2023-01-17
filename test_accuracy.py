@@ -12,8 +12,6 @@ def cat_recogn_in_procents():
     count_cats = 0
     count_imgs = 0
 
-    # cat_recognizer = KerasCatRecognizer()
-
     for file_name in os.listdir(directory_cat_name):
         count_imgs += 1
         if cat_recognizer.is_cat(file_name):
@@ -24,8 +22,6 @@ def cat_recogn_in_procents():
 def horse_recogn_in_procents():
     count_horses = 0
     count_imgs = 0
-
-   # cat_recognizer = KerasCatRecognizer()
 
     for file_name in os.listdir(directory_horse_name):
         count_imgs += 1
@@ -38,12 +34,9 @@ def people_recogn_in_procents():
     count_people = 0
     count_imgs = 0
 
-    #cat_recognizer = KerasCatRecognizer()
-
     for file_name in os.listdir(directory_people_name):
         count_imgs += 1
         if cat_recognizer.is_cat(file_name):
             count_people += 1
 
     return (1-(count_people/count_imgs)) * 100
-
