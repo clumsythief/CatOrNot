@@ -46,7 +46,7 @@ Follow instructions from [deploy.md](./deploy.md) file
 
 Each of them will be described below
 
-## Conversation module _(Telegram Bot)_
+## Conversation module _(TelegramBot)_
 
 This module is responsible for the end user interaction interface. During the design phase, our team chose to implement the [Telegram](https://telegram.org/) social networking platform, as it already contains a basic graphical user interface, as well as personal data protection mechanisms, due to which personal statistics will be available only to the end user.
 
@@ -62,7 +62,7 @@ Below is a schematic diagram of the module:
 
 ![Diagram of Telegram Bot](architecture/TelegramBotDiagram.png)
 
-## Neural network module
+## Neural network module _(Cat Recognition)_
 
 For content identification during design, it was decided to choose the [Tensorflow](https://www.tensorflow.org/) library with [Keras](https://keras.io/about/) learning models. This solution allowed us to significantly reduce the cost of development resources, as well as maintain an acceptable balance between recognition quality and processing speed.
 
@@ -74,7 +74,7 @@ Below is a schematic diagram of the module:
 
 ![](architecture/CatRecognitionDiagram.png)
 
-## Database interaction module
+## Database interaction module _(SQLiteImageDAO)_
 
 This module is responsible for saving the results of user interaction with the bot, as well as for issuing personal statistics upon request.
 
@@ -94,6 +94,6 @@ Table structure:
 - id_cat — if **1** then there is **a cat in the photo**, if **0** then there is **no cat in the photo**
 - uploaded_at — timestamp of upload
 
-## Tests
+## Tests _(RecognitionTests, DbTests)_
 
 The correctness of the project is controlled by a set of testing tools developed by our team. You can get acquainted with the available tools by going to the **tests** subfolder.
