@@ -24,7 +24,5 @@ class KerasCatRecognizer(CatRecognizer):
         return 281 <= res.item() <= 285
 
 
-# img_dir = 'image_dir/photo_2022-12-18_15-03-48.jpg'
-
-# CatRecognizer1 = MyCatRecognizer()
-# print(CatRecognizer1.is_cat('image_dir/photo_2022-12-18_15-03-48.jpg'))
+# CatRecognizer1 = KerasCatRecognizer()
+# print(CatRecognizer1.is_cat('image.jpg'))
