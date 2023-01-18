@@ -22,7 +22,3 @@ class KerasCatRecognizer(CatRecognizer):
 
         # VGG16 is based on imagenet dataset, in this dataset the cat IDs range from 281 to 285
         return 281 <= res.item() <= 285
-
-
-# CatRecognizer1 = KerasCatRecognizer()
-# print(CatRecognizer1.is_cat('image.jpg'))
