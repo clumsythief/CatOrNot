@@ -62,7 +62,7 @@ Below is a schematic diagram of the module:
 
 ![Diagram of Telegram Bot](architecture/TelegramBotDiagram.png)
 
-## Neural network Module
+## Neural network module
 
 For content identification during design, it was decided to choose the [Tensorflow](https://www.tensorflow.org/) library with [Keras](https://keras.io/about/) learning models. This solution allowed us to significantly reduce the cost of development resources, as well as maintain an acceptable balance between recognition quality and processing speed.
 
@@ -96,4 +96,4 @@ Table structure:
 
 ## Tests
 
-The correctness of the project is controlled by a set of testing tools developed by our team. You can get acquainted with the available tools by going to the **tests** subfolder
+The correctness of the project is controlled by a set of testing tools developed by our team. You can get acquainted with the available tools by going to the **tests** subfolder.
